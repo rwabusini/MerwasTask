@@ -1,0 +1,6 @@
+module Pods_MerwasTask {
+  umbrella header "Pods-MerwasTask-umbrella.h"
+
+  export *
+  module * { export * }
+}
