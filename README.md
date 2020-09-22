@@ -1,11 +1,14 @@
-# PORTFOLIO-APP 
-[![Build Status](https://travis-ci.org/dbarochiya/me.svg?branch=master)](https://travis-ci.org/dbarochiya/me)
+# Merwas Task React Native App 
 
-This is the implementaion code for the blog I have written '[How to create your portfolio website using React.js](https://medium.freecodecamp.org/portfolio-app-using-react-618814e35843)'
+using-react-native
+
+
+Install and run on ios: 
+
 - To run this project follow these steps , 
+  - 'npm install -g react-native-cli'
   - clone the repo using `git clone`
-  - navigate to folder `portfolio-app`
-  - run `npm install` to instal node modules
-  - run `npm start` to start the service on `localhost:3000`
+  - navigate to folder `MerwasTask`
+  - run `npm install` to install node modules
+  - run `npm react-native run-ios` to start the ios simulator`
     
-##### deployed app : https://dbarochiya.github.io/me/
