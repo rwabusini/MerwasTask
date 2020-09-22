@@ -1,6 +1,6 @@
 
 import React from 'react';  
-import {View,Text ,StyleSheet, ScrollView } from 'react-native'; 
+import {View,Text ,StyleSheet, ScrollView , TouchableOpacity} from 'react-native'; 
 //import { ScrollView } from 'react-native-gesture-handler';
 import { Avatar, Button, Card, Title, Paragraph ,IconButton} from 'react-native-paper'; 
 //import CardContent from 'react-native-paper/lib/typescript/src/components/Card/CardContent';
@@ -15,7 +15,7 @@ const restData = data.restaurants;
 
 
 
-function BestSellers() {
+function BestSellers({navigation}) {
 
     //console.log(restData[6].name)
     return (
@@ -23,18 +23,29 @@ function BestSellers() {
      <ScrollView>
         {restData.map((rest) => (
             <>
-            
+            <View>
+             <TouchableOpacity onPress={() => navigation.navigate("Product")}>
                 <Card style={styles.cards}>
                
                  <Card.Cover source={{ uri: rest.photograph }} />
                  <Card.Title title={rest.name} subtitle={rest.address}/>
                 
-                 <Card.Content style={styles.content}>
-                    <Button mode="outlined" color = "#FF8C00" onPress={() => console.log('Pressed')} >{rest.neighborhood}</Button>
-                    <Button mode="contained" color = "#FF8C00" >10% OFF</Button>
+                 <Card.Content >
+                     <View style={styles.content}>
+                        <Button mode="outlined" color = "#FF8C00" onPress={() => console.log('Pressed')} >{rest.neighborhood}</Button>
+                        <Button mode="contained" color = "#FF8C00" >10% OFF</Button>
+                    </View>
+                    <View style={{ flexDirection: "row", backgroundColor: "#3399FF" , justifyContent: 'space-between'}}> 
+                        <Text> AED </Text>   
+                        <Button mode="contained" color = "white" onPress={() => navigation.navigate("Product")}>View Deal</Button>
+                        
+                    </View >
+                    
                  </Card.Content>
                 </Card>
-            
+            </TouchableOpacity>
+           
+            </View>
           </>
         ))}
         </ScrollView>
@@ -57,6 +68,7 @@ function BestSellers() {
 
     content: {flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'stretch',
 },
 
   });
