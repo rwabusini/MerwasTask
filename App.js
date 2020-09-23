@@ -1,7 +1,7 @@
 //import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { useIsFocused } from "@react-navigation/core";
 import { createStackNavigator } from "@react-navigation/stack";
 import Featured from "./src/screens/Featured"; 
@@ -12,16 +12,19 @@ import Flag from 'react-native-flags';
 import { CustomPicker } from 'react-native-custom-picker'
 import { SafeAreaView } from "react-native-safe-area-context";
 import Picker from "@react-native-community/picker";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Zocial from 'react-native-vector-icons/Zocial';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 
 
-
-
+const Tab = createMaterialTopTabNavigator();
   
   const TestTab = () => {
   return (
-  <Tab.Navigator initialRouteName="Featured" shifting={true}>
-    <Tab.Screen name="Featured" component={Featured} />
+  <Tab.Navigator  tabBarOptions={{tabBarIcon: true}}
+  initialRouteName="Featured" shifting={true}>
+  <Tab.Screen name="Featured" component={CartScreen} />
   <Tab.Screen name="Best Sellers" component={BestSellers} />
   <Tab.Screen name="New In" component={NewIn} />
   </Tab.Navigator>
@@ -37,14 +40,12 @@ const HomeScreen = ({ navigation }) => {
 navigation.setOptions({
   headerRight: () => (
     <TouchableOpacity onPress={() => navigation.replace("Search")}>
-      <Text>Search</Text>
+     <Icon name="heart" type="FontAwesome" color="#C0C0C0" size={35}
+                            onPress={()=> {} } underlayColor={'#64b5f6'}/>
     </TouchableOpacity>
   ),
   headerLeft: () => (
     <>
-    <TouchableOpacity onPress={() => navigation.replace("Search")}>
-     <Text>Search</Text>
-    </TouchableOpacity>
     
 </>
   ),
@@ -53,6 +54,7 @@ navigation.setOptions({
 return (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
     <Text>HomeScreen</Text>
+    {/* <BestSellers/>  */}
     <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
       <Text>"Go To Cart Screen"</Text>
     </TouchableOpacity>
@@ -61,7 +63,7 @@ return (
 };
 
 
-const Tab = createMaterialTopTabNavigator();
+
 
 const CartScreen = ({ navigation }) => {
 return (     
@@ -81,7 +83,6 @@ const isFocused = useIsFocused();
 return (
     <View style={{ flex: 1}}>
       <Text style={{ color: isFocused ? "green" : "black" }}>ProductScreen</Text>
-      <BestSellers/> 
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text>"Go To Home Screen"</Text>
       </TouchableOpacity>
@@ -97,25 +98,32 @@ return (
 const Stack = createStackNavigator();
 
 function App() {
+  
   const [selectedValue, setSelectedValue] = useState("2");
 return (
   <NavigationContainer>
     <Stack.Navigator  
     screenOptions={{
           headerStyle: {
-            backgroundColor: '#f4511e',
+            
             
     },
     headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.replace("Search")}>
-        <Text>Search</Text>
-      </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity style= {{marginRight:20}} onPress={() => ({CartScreen})}>
+          <Zocial name="cart" type="Zocial" color="#FF8C00" size={25}/> 
+        </TouchableOpacity>
+
+        <TouchableOpacity style= {{marginTop:6}} onPress={() => navigation.replace("Search")}>
+          <Icon name="search" type="FontAwesome" color="#3399FF" size={20}/>
+        </TouchableOpacity>
+      </View>
     ),
     headerLeft: () => (
       <>
-      <TouchableOpacity onPress={() => navigation.replace("Search")}>
-      <Text>Search</Text>
-      </TouchableOpacity>
+      <TouchableOpacity>
+       <Entypo style= {{marginLeft:10}} name="menu" type="Entypo" color="#FF8C00" size={30}/>
+    </TouchableOpacity>
 {/* 
     <Picker selectedValue={selectedValue} onValueChange={(itemValue) => {
                         setSelectedValue(itemValue);
@@ -124,9 +132,6 @@ return (
       <Picker.Item value="2" label="2" />
       <Picker.Item value="3" label="3" />
     </Picker> */}
-    <TouchableOpacity onPress={() => navigation.replace("Search")}>
-    <Text>Search</Text>
-    </TouchableOpacity>
   </>
     )}}>
       <Stack.Screen name="Home3444" component={TestTab}/>
@@ -145,5 +150,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight:10,
+
+  }
 });
 export default App;

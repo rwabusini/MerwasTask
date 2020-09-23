@@ -26,30 +26,27 @@ function BestSellers({navigation}) {
             <View>
              <TouchableOpacity onPress={() => navigation.navigate("Product")}>
                 <Card style={styles.cards}>
-                
-                 <Card.Cover source={{ uri: rest.photograph }} />
-                 <TouchableOpacity  style={styles.heart}> 
-                        <Icon name="heart" type="FontAwesome" color="#C0C0C0" size={35}
-                        onPress={()=> {} } underlayColor={'#64b5f6'}/>
+                    <Card.Cover source={{ uri: rest.photograph }} />
+                        <TouchableOpacity  style={styles.heart}> 
+                            <Icon name="heart" type="FontAwesome" color="#C0C0C0" size={35}
+                            onPress={()=> {} } underlayColor={'#64b5f6'}/>
                         </TouchableOpacity>
-                 <Card.Title title={rest.name} subtitle={rest.address}/>
-                
-                 <Card.Content >
-                        
+                    <Card.Title title={rest.name} subtitle={rest.address}/>
+                    
+                    <Card.Content >  
                         <View style={styles.content}>
-                            <Button style={{ justifyContent: "flex-end"}} mode="outlined" color = "#FF8C00" onPress={() => console.log('Pressed')} >{rest.neighborhood}</Button>
-                            <Button mode="contained" color = "#FF8C00" >10% OFF</Button>
-                        </View >
-                          
-                 </Card.Content>
-                 <View style={styles.cardFoot}> 
-                            <Text style={{marginRight:30, marginTop:15 }}> AED 335 </Text>  
-                            <Text style={{fontSize: 20, marginRight:100, marginTop:15, color: "white" }}> 119 </Text>  
-                            <Button style={styles.deal} mode="contained" title = "VIEW DEAL" color = "white" onPress={() => navigation.navigate("Product")}/>  
-                        </View >  
+                            <Button style={{ }} mode="outlined" color = "#FF8C00" onPress={() => console.log('Pressed')} >{rest.neighborhood}</Button>
+                            <Button style={{ marginLeft:155}} mode="contained" color = "#FF8C00" >10% OFF</Button>
+                        </View >    
+                    </Card.Content>
+                    <View style={styles.cardFoot}> 
+                        <Text style={{marginRight:5, marginTop:35, color: "white" }}> AED </Text> 
+                        <Text style={{marginRight:0, fontSize: 20, marginTop:30, color: "white" }}>335</Text>   
+                        <Text style={{fontSize: 40, marginRight:120, marginTop:15, color: "white" }}> 119 </Text>  
+                        <Button style={styles.deal} mode="contained" title = "VIEW DEAL" onPress={() => navigation.navigate("Product")}></Button> 
+                    </View >  
                 </Card>
             </TouchableOpacity>
-           
             </View>
           </>
         ))}
@@ -73,7 +70,6 @@ function BestSellers({navigation}) {
 
     content: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignSelf:'stretch',
     },
 
@@ -86,22 +82,21 @@ function BestSellers({navigation}) {
 
     deal:
     {
-    borderRadius:10,
+    borderRadius:20,
     borderWidth: 1,
-    width: 10,
-    height: 20,
+    minWidth: 90,
+    height: 25,
     marginRight:30,
-    marginTop:15
+    marginTop:20,
+    backgroundColor: "white" 
     },
 
     cardFoot: {
     flexDirection: "row",
     backgroundColor: "#3399FF",
-    justifyContent: 'space-between',
-    width: "auto",
+    // justifyContent: 'space-between',
     marginTop:15,
     height: 70,
-    alignSelf:'stretch',
     }
 
   });
