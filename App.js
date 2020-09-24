@@ -2,16 +2,14 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import { useIsFocused } from "@react-navigation/core";
 import { createStackNavigator } from "@react-navigation/stack";
 import Featured from "./src/screens/Featured"; 
 import NewIn from "./src/screens/NewIn"; 
 import BestSellers from "./src/screens/BestSellers"; 
-import { createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'; 
-import Flag from 'react-native-flags';
-import { CustomPicker } from 'react-native-custom-picker'
-import { SafeAreaView } from "react-native-safe-area-context";
-import Picker from "@react-native-community/picker";
+import CartScreen from "./src/components/Cart"; 
+import ProductScreen from "./src/components/Product"; 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Zocial from 'react-native-vector-icons/Zocial';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -65,30 +63,30 @@ return (
 
 
 
-const CartScreen = ({ navigation }) => {
-return (     
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <Text style={{}}>CartScreen</Text>
-    <TouchableOpacity onPress={() => navigation.navigate("Product")}>
-      <Text>"Go To Home Screen"</Text>
-    </TouchableOpacity>
-  </View>
+// const CartScreen = ({ navigation }) => {
+// return (     
+//   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//     <Text style={{}}>CartScreen</Text>
+//     <TouchableOpacity onPress={() => navigation.navigate("Product")}>
+//       <Text>"Go To Home Screen"</Text>
+//     </TouchableOpacity>
+//   </View>
   
-);
-};
+// );
+// };
 
 
-const ProductScreen = ({ navigation }) => {
-const isFocused = useIsFocused();
-return (
-    <View style={{ flex: 1}}>
-      <Text style={{ color: isFocused ? "green" : "black" }}>ProductScreen</Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Text>"Go To Home Screen"</Text>
-      </TouchableOpacity>
-    </View>
-);
-};
+// const ProductScreen = ({ navigation }) => {
+// const isFocused = useIsFocused();
+// return (
+//     <View style={{ flex: 1}}>
+//       <Text style={{ color: isFocused ? "green" : "black" }}>ProductScreen</Text>
+//       <TouchableOpacity onPress={() => navigation.goBack()}>
+//         <Text>"Go To Home Screen"</Text>
+//       </TouchableOpacity>
+//     </View>
+// );
+// };
 
 
 
@@ -99,7 +97,6 @@ const Stack = createStackNavigator();
 
 function App() {
   
-  const [selectedValue, setSelectedValue] = useState("2");
 return (
   <NavigationContainer>
     <Stack.Navigator  
@@ -121,6 +118,7 @@ return (
     ),
     headerLeft: () => (
       <>
+      
       <TouchableOpacity>
        <Entypo style= {{marginLeft:10}} name="menu" type="Entypo" color="#FF8C00" size={30}/>
     </TouchableOpacity>

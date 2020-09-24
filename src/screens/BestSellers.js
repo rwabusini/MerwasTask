@@ -36,14 +36,14 @@ function BestSellers({navigation}) {
                     <Card.Content >  
                         <View style={styles.content}>
                             <Button style={{ }} mode="outlined" color = "#FF8C00" onPress={() => console.log('Pressed')} >{rest.neighborhood}</Button>
-                            <Button style={{ marginLeft:155}} mode="contained" color = "#FF8C00" >10% OFF</Button>
+                            <Button style={{ marginLeft:150}} mode="contained" color = "#FF8C00" >69% OFF</Button>
                         </View >    
                     </Card.Content>
                     <View style={styles.cardFoot}> 
                         <Text style={{marginRight:5, marginTop:35, color: "white" }}> AED </Text> 
-                        <Text style={{marginRight:0, fontSize: 20, marginTop:30, color: "white" }}>335</Text>   
+                        <Text style={{marginRight:0, fontSize: 20, marginTop:30, textDecorationLine: 'line-through', color: "white" }}>335</Text>   
                         <Text style={{fontSize: 40, marginRight:120, marginTop:15, color: "white" }}> 119 </Text>  
-                        <Button style={styles.deal} mode="contained" title = "VIEW DEAL" onPress={() => navigation.navigate("Product")}></Button> 
+                        <Button style={styles.deal} mode="contained"  onPress={() => navigation.navigate("Product")}><Text style={{color: 'black', fontSize: 12}}> VIEW DEAL </Text></Button> 
                     </View >  
                 </Card>
             </TouchableOpacity>
@@ -83,20 +83,19 @@ function BestSellers({navigation}) {
     deal:
     {
     borderRadius:20,
-    borderWidth: 1,
-    minWidth: 90,
-    height: 25,
-    marginRight:30,
     marginTop:20,
-    backgroundColor: "white" 
+    marginRight: 30,
+    backgroundColor: "white", 
+    height:35,
     },
 
     cardFoot: {
     flexDirection: "row",
     backgroundColor: "#3399FF",
-    // justifyContent: 'space-between',
+    ///justifyContent: 'space-between',
     marginTop:15,
     height: 70,
+    width: 400
     }
 
   });
