@@ -1,10 +1,7 @@
 
 import React from 'react';  
 import {View,Text ,StyleSheet, ScrollView , TouchableOpacity} from 'react-native'; 
-//import { ScrollView } from 'react-native-gesture-handler';
-import { Avatar, Button, Card, Title, Paragraph ,IconButton} from 'react-native-paper'; 
-//import CardContent from 'react-native-paper/lib/typescript/src/components/Card/CardContent';
-import * as Animatable from 'react-native-animatable' 
+import { Button, Card,} from 'react-native-paper'; 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import * as data from "../../Data/data";
 const restData = data.restaurants; 
@@ -92,7 +89,6 @@ function BestSellers({navigation}) {
     cardFoot: {
     flexDirection: "row",
     backgroundColor: "#3399FF",
-    ///justifyContent: 'space-between',
     marginTop:15,
     height: 70,
     width: 400
