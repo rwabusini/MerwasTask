@@ -1,6 +1,6 @@
-//import 'react-native-gesture-handler';
-import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+
+import React from 'react';
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer} from "@react-navigation/native";
 import { createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
@@ -21,8 +21,8 @@ const Tab = createMaterialTopTabNavigator();
   <Tab.Navigator  tabBarOptions={{tabBarIcon: true}}
   initialRouteName="Featured" shifting={true}>
   <Tab.Screen name="Featured" component={Featured} />
-  <Tab.Screen name="Best Sellers" component={NewIn} />
-  <Tab.Screen name="New In" component={BestSellers} />
+  <Tab.Screen name="Best Sellers" component={BestSellers} />
+  <Tab.Screen name="New In" component={NewIn} />
   </Tab.Navigator>
   );
   };
@@ -30,19 +30,17 @@ const Tab = createMaterialTopTabNavigator();
 
 const Stack = createStackNavigator();
 
-function App() {
+function App({navigation}) {
+
   
 return (
   <NavigationContainer>
     <Stack.Navigator  
     screenOptions={{
    
-    headerRight: ({navigation}) => (
+    headerRight: () => (
       <View style={styles.header}>
-        <TouchableOpacity style= {{marginRight:20}} onPress={() => {
-          console.log ("hi", navigation, "i am here ") 
-         //return navigation.navigate("Cart")
-        }}>
+        <TouchableOpacity style= {{marginRight:20}} onPress={() => navigation.navigate("Cart")}>
           <Zocial name="cart" type="Zocial" color="#FF8C00" size={25}/> 
         </TouchableOpacity>
 

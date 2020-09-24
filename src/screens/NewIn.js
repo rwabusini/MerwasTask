@@ -7,7 +7,7 @@ import * as data from "../../Data/data";
 const restData = data.restaurants; 
 
   
-function NewIn() {
+function NewIn({navigation}) {
      //console.log(restData[6].name)
      return (
       <>

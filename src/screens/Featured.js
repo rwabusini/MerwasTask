@@ -7,7 +7,7 @@ import * as data from "../../Data/data";
 const restData = data.restaurants; 
 
   
-function Featured() {
+function Featured({navigation}) {
      //console.log(restData[6].name)
      return (
         <>
@@ -20,7 +20,7 @@ function Featured() {
                        <Card.Cover source={{ uri: rest.photograph }} />
                            <TouchableOpacity  style={styles.heart}> 
                                <Icon name="heart" type="FontAwesome" color="#C0C0C0" size={35}
-                               onPress={()=> {} } underlayColor={'#64b5f6'}/>
+                               onPress={() => navigation.navigate("Cart")}/>
                            </TouchableOpacity>
                        <Card.Title title={rest.name} subtitle={rest.address}/>
                        
